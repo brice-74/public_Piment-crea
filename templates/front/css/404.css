@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
+body{
+	font-family: 'Ubuntu', sans-serif;
+	background:rgb(243,242,249);
+}
+*{box-sizing: border-box;}
+.bg-img{
+	height: 100vh;
+	background-repeat: no-repeat;
+	background-size:cover;
+	background-position:center center;
+	background-image: url(../img/PersonnagePiment.png);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 10px 40px 40px 40px;
+}
+.div1,.div2{
+	display: flex;
+	flex-direction: column;
+}
+.div1{height: 100%;}
+.div2{
+	position: relative;
+	z-index: 999;
+}
+.div2 > *{margin:0 auto;}
+h1{
+	display: none;
+}
+h2{
+	z-index: -1;
+	margin:0 auto;
+	position: relative;
+	font-size: 100px;
+	font-weight: bold;
+	color: rgba(230,50,38,1);
+}
+h2 > span{display: none;}
+p:first-child{
+	font-weight: bold;
+	margin-bottom: 10px;
+	font-size:32px;
+}
+p{
+	text-align: center;
+	font-weight: bold;
+	font-size: 18px;
+	margin-bottom: 40px;
+}
+.btnB{
+	position: relative;
+	color: rgb(255,255,255);
+	text-align: center;
+	overflow: hidden;
+	padding:10px 20px;
+	border-radius: 3px;
+}
+.btnB::after{background: linear-gradient(90deg, rgba(33,36,77,1) 0%, rgba(33,36,77,1) 25%, rgba(230,50,38,1) 75% , rgba(230,50,38,1) 100%);}
+.btnB::after{
+	z-index: -1;
+	content: "";
+	position: absolute;
+	top: 0;
+	left:0;
+	width: 400%;
+	height: 100%;
+	transition: 250ms cubic-bezier(.14,.41,.75,.52);
+}
+.btnB:hover::after{	left:-300%;}
+
+
+
+
+@media screen and (max-width: 1300px){
+	h2{
+		font-size:250px;
+	}
+}
+@media screen and (max-width: 1024px){
+	p:first-child{
+		font-size:42px;
+	}
+	p{
+		font-size: 20px;
+	}
+	.btnB{
+		font-size: 20px;
+		padding:20px 60px;
+	}
+}

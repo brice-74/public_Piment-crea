@@ -1,0 +1,23 @@
+RewriteEngine On
+RewriteBase /
+RewriteCond %{SERVER_PORT} 80
+
+RewriteCond %{HTTP_HOST} ^www.instinct-crea.fr$ [NC]
+RewriteRule (.*) https://instinct-crea.fr/$1 [R=301,L] 
+RewriteCond %{HTTP:HTTPS} !on
+RewriteRule (.*)   https://%{SERVER_NAME}/$1   [QSA,L,R=301]
+
+#RewriteRule ^(.*)$ https://instinct-crea.fr/$1 [R]
+RewriteRule ^search?searh=(.*)&goSearch=recherche$	index.php?search=$1 [L]
+RewriteRule ^addesion-(.*)$				index.php?id=$1 [L]
+RewriteRule ^tutoriaux(\+[a-z]+_[-0-9]*)(\+[a-z]+_[-0-9]*)(\+[a-z]+_[-0-9]*)$	index.php?theme=$1&log=$2&lang=$3 [L]
+RewriteRule ^visuels(\+[a-z]+_[-0-9]*)(\+[a-z]+_[-0-9]*)$			index.php?theme=$1&log=$2 [L]
+RewriteRule ^chaine-([0-9]*)-(.*)/[a-z]*$	index.php?id=$1&name=$2 [L]
+RewriteRule ^[-a-z]+-([0-9]+)-(.*)$		index.php?id=$1&title=$2 [L]
+RewriteRule ^[-a-z]+/[-a-z]+-([0-9]+)$		index.php?id=$1 [L]
+RewriteRule ^vue-chaine/(.*)$			index.php?id=$1 [L]
+RewriteRule ^[-a-z]+-([0-9]+)$			index.php?id=$1 [L]
+RewriteRule ^[-a-z]+/[-a-z]+$			index.php [L]
+RewriteRule ^[-a-z]+$				index.php [L]
+#ErrorDocument 404 errors/404.php
+#ErrorDocument 403 errors/403.php
